@@ -49,6 +49,9 @@ class Miniplayer extends StatefulWidget {
   //Allows you to manually control the miniplayer in code
   final MiniplayerController? controller;
 
+  ///Collapse by tapping anywhere in the miniplayer.
+  final bool tapToCollapse;
+
   ///Used to set the color of the background box shadow
   final Color backgroundBoxShadow;
 
@@ -65,6 +68,7 @@ class Miniplayer extends StatefulWidget {
     this.onDismiss,
     this.onDismissed,
     this.controller,
+    this.tapToCollapse = true,
     this.backgroundBoxShadow = Colors.black45,
   }) : super(key: key);
 
@@ -209,7 +213,12 @@ class _MiniplayerState extends State<Miniplayer> with TickerProviderStateMixin {
                         ),
                       ),
                     ),
-                    onTap: () => _snapToPosition(_dragHeight != widget.maxHeight ? PanelState.MAX : PanelState.MIN),
+                    onTap: () =>
+                        _dragHeight == widget.maxHeight && !widget.tapToCollapse
+                            ? null
+                            : _snapToPosition(_dragHeight != widget.maxHeight
+                                ? PanelState.MAX
+                                : PanelState.MIN),
                     onPanStart: (details) {
                       _startHeight = _dragHeight;
                       updateCount = 0;
