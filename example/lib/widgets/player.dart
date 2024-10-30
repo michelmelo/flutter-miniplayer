@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:miniplayer/miniplayer.dart';
+import 'package:flutter_miniplayer/flutter_miniplayer.dart';
 import 'package:example/main.dart';
 
 import '../utils.dart';
@@ -152,17 +152,17 @@ class DetailedPlayer extends StatelessWidget {
                             Text(audioObject.title,
                                 style: Theme.of(context)
                                     .textTheme
-                                    .bodyText2!
+                                    .bodyMedium!
                                     .copyWith(fontSize: 16)),
                             Text(
                               audioObject.subtitle,
                               style: Theme.of(context)
                                   .textTheme
-                                  .bodyText2!
+                                  .bodyMedium!
                                   .copyWith(
                                     color: Theme.of(context)
                                         .textTheme
-                                        .bodyText2!
+                                        .bodyMedium!
                                         .color!
                                         .withOpacity(0.55),
                                   ),

@@ -24,7 +24,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  miniplayer:
+  flutter_miniplayer:
     path:
       ../
 

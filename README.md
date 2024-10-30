@@ -1,11 +1,9 @@
-[![Pub](https://img.shields.io/pub/v/miniplayer?color=2196F3)](https://pub.dev/packages/miniplayer)
+[![Pub](https://img.shields.io/pub/v/flutter_miniplayer?color=2196F3)](https://pub.dev/packages/flutter_miniplayer)
 
 A lightweight flutter package to simplify the creation of a miniplayer by providing a builder function with the current height and percentage progress. The widget responds to tap and drag gestures and is highly customizable.
 **What is a miniplayer?**
 Miniplayers are commonly used in media applications like Spotify and Youtube. A miniplayer can be expanded and minified and remains on the screen when minified until dismissed by the user.
 See the demo below for an example.
-
-Tutorial: https://www.youtube.com/watch?v=umhl2hakkcY
 
 ## Demo
 
@@ -51,7 +49,7 @@ Miniplayer(
       </pre>
     </td>
      <td>
-       <img src="https://raw.githubusercontent.com/peterscodee/miniplayer/master/example/demo_gif/demo_dismiss.gif"/>
+       <img src="https://raw.githubusercontent.com/michelmelo/flutter_miniplayer/master/example/demo_gif/demo_dismiss.gif"/>
        <p>If onDismiss is set, the miniplayer can be dismissed</p>
      </td>
   </tr>
@@ -69,7 +67,7 @@ Miniplayer(
         </pre>
       </td>
        <td>
-         <img src="https://raw.githubusercontent.com/peterscodee/miniplayer/master/example/demo_gif/demo_valueNotifier.gif"/>
+         <img src="https://raw.githubusercontent.com/michelmelo/flutter_miniplayer/master/example/demo_gif/demo_valueNotifier.gif"/>
          <p>Allows you to use a global ValueNotifier with the current progress. This can be used to hide the BottomNavigationBar.</p>
        </td>
     </tr>
@@ -92,15 +90,15 @@ controller.animateToHeight(state: PanelState.MAX);
 </table>
 
 ## Persistence
-Implementing the miniplayer as described under [usage](https://pub.dev/packages/miniplayer#usage) - for instance by wrapping it inside a `Stack` in the `Scaffold` body - would work out of the box but has some disadvantages. If you push a new screen via `Navigator.push` the miniplayer would disappear. What we want is a persistent miniplayer which stays on the screen.
+Implementing the miniplayer as described under [usage](https://pub.dev/packages/flutter_miniplayer#usage) - for instance by wrapping it inside a `Stack` in the `Scaffold` body - would work out of the box but has some disadvantages. If you push a new screen via `Navigator.push` the miniplayer would disappear. What we want is a persistent miniplayer which stays on the screen.
 
-If you want to archive persistency, you have the choice between two embedding options, which depends on your use case. The [first method](https://pub.dev/packages/miniplayer#first-method-simple) is only recommended for simple apps. If you want to use dialogs or other persistent widgets such as a BottomNavigationBar, the [second](https://pub.dev/packages/miniplayer#second-method-advanced) (slightly more advanced) method is the right fit for you.
+If you want to archive persistency, you have the choice between two embedding options, which depends on your use case. The [first method](https://pub.dev/packages/miniplayer#first-method-simple) is only recommended for simple apps. If you want to use dialogs or other persistent widgets such as a BottomNavigationBar, the [second](https://pub.dev/packages/flutter_miniplayer#second-method-advanced) (slightly more advanced) method is the right fit for you.
 
 ## First method (Simple)
 Using a `Stack` in the [builder](https://api.flutter.dev/flutter/material/MaterialApp/builder.html) method
 ```dart
 import 'package:flutter/material.dart';
-import 'package:miniplayer/miniplayer.dart';
+import 'package:flutter_miniplayer/flutter_miniplayer.dart';
 
 void main() => runApp(MyApp());
 
@@ -140,7 +138,7 @@ Using a `Stack` in combination with a custom `Navigator`
 
 ```dart
 import 'package:flutter/material.dart';
-import 'package:miniplayer/miniplayer.dart';
+import 'package:flutter_miniplayer/flutter_miniplayer.dart';
 
 void main() => runApp(MyApp());
 

@@ -1,0 +1,17 @@
+.DS_Store
+.dart_tool/
+
+.packages
+.pub/
+
+build/
+
+# Cleanliness
+pubspec.lock
+**.iml
+.idea
+.metadata
+example/.gitignore
+example/.metadata
+example/pubspec.lock
+pubspec.lock
