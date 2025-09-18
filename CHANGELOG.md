@@ -1,3 +1,6 @@
+## 1.0.2
+* Remove the default bg color painted by the package, to support the blur blending
+
 ## 1.0.1
 
 * Added dark theme support [#13](https://github.com/peterscodee/miniplayer/issues/13)
