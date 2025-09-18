@@ -10,7 +10,6 @@ build/
 
 **.iml
 .idea
-.metadata
 example/.gitignore
 example/pubspec.lock
 
