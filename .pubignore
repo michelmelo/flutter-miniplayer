@@ -1,1 +1,4 @@
+# Arquivos ignorados ao publicar no Pub
+example/.metadata
+pubspec.lock
 
