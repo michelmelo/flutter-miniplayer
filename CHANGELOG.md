@@ -1,3 +1,14 @@
+## 2.0.0
+* **BREAKING**: `PanelState.MAX/MIN/DISMISS` renamed to `PanelState.max/min/dismiss` (Dart enum naming convention)
+* Migrated `MiniplayerWillPopScope` from deprecated `WillPopScope`/`addScopedWillPopCallback` to `PopScope` (required for Flutter 3.16+)
+* Fixed animation listener leak in `_animateToHeight` — listener is now explicitly removed on animation completion
+* Removed unused `StreamController` dead code
+* Removed unused `DismissCallback` typedef
+* Fixed `typedef` syntax to modern Dart style
+* Fixed `super.initState()` call order
+* Replaced `Container()` with `SizedBox.shrink()` for dismissed state
+* Updated README: `onDismiss` → `onDismissed`, `PanelState.MAX` → `PanelState.max`
+
 ## 1.0.2
 * Remove the default bg color painted by the package, to support the blur blending
 

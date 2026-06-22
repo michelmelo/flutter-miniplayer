@@ -1,66 +1,32 @@
 import 'package:flutter/material.dart';
 
-class MiniplayerWillPopScope extends StatefulWidget {
+/// A scope widget that intercepts the system back button/gesture.
+///
+/// When [onWillPop] returns `false`, the pop is prevented.
+/// Uses [PopScope] internally as a replacement for the deprecated
+/// [WillPopScope]-based implementation.
+class MiniplayerWillPopScope extends StatelessWidget {
   const MiniplayerWillPopScope({
-    Key? key,
+    super.key,
     required this.child,
     required this.onWillPop,
-  }) : super(key: key);
+  });
 
   final Widget child;
-  final WillPopCallback onWillPop;
+  final Future<bool> Function() onWillPop;
 
   @override
-  _MiniplayerWillPopScopeState createState() => _MiniplayerWillPopScopeState();
-
-  static _MiniplayerWillPopScopeState? of(BuildContext context) {
-    return context.findAncestorStateOfType<_MiniplayerWillPopScopeState>();
+  Widget build(BuildContext context) {
+    return PopScope(
+      canPop: false,
+      onPopInvokedWithResult: (bool didPop, Object? result) async {
+        if (didPop) return;
+        final bool shouldPop = await onWillPop();
+        if (shouldPop && context.mounted) {
+          Navigator.of(context).pop(result);
+        }
+      },
+      child: child,
+    );
   }
-}
-
-class _MiniplayerWillPopScopeState extends State<MiniplayerWillPopScope> {
-  ModalRoute<dynamic>? _route;
-
-  _MiniplayerWillPopScopeState? _descendant;
-
-  set descendant(state) {
-    _descendant = state;
-    updateRouteCallback();
-  }
-
-  Future<bool> onWillPop() async {
-    bool? willPop;
-    if (_descendant != null) {
-      willPop = await _descendant!.onWillPop();
-    }
-    if (willPop == null || willPop) {
-      willPop = await widget.onWillPop();
-    }
-    return willPop;
-  }
-
-  void updateRouteCallback() {
-    _route?.removeScopedWillPopCallback(onWillPop);
-    _route = ModalRoute.of(context);
-    _route?.addScopedWillPopCallback(onWillPop);
-  }
-
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    var parentGuard = MiniplayerWillPopScope.of(context);
-    if (parentGuard != null) {
-      parentGuard.descendant = this;
-    }
-    updateRouteCallback();
-  }
-
-  @override
-  void dispose() {
-    _route?.removeScopedWillPopCallback(onWillPop);
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) => widget.child;
 }
