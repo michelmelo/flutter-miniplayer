@@ -38,11 +38,11 @@ Stack(
     <th>Example</th>
   </tr>
   <tr>
-    <td>onDismiss</td>
+    <td>onDismissed</td>
     <td>
       <pre lang="dart">
 Miniplayer(
-   onDismiss: () {
+   onDismissed: () {
       //Handle onDismissed here
    }, 
 ),
@@ -50,7 +50,7 @@ Miniplayer(
     </td>
      <td>
        <img src="https://raw.githubusercontent.com/michelmelo/flutter_miniplayer/master/example/demo_gif/demo_dismiss.gif"/>
-       <p>If onDismiss is set, the miniplayer can be dismissed</p>
+       <p>If onDismissed is set, the miniplayer can be dismissed</p>
      </td>
   </tr>
   <tr></tr>
@@ -82,7 +82,7 @@ Miniplayer(
    controller: controller, 
 ),
   </br>
-controller.animateToHeight(state: PanelState.MAX);
+controller.animateToHeight(state: PanelState.max);
         </pre>
       </td>
        <td></td>

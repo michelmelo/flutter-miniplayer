@@ -3,14 +3,12 @@ import 'package:flutter_miniplayer/flutter_miniplayer.dart';
 extension SelectedColorExtension on PanelState {
   int get heightCode {
     switch (this) {
-      case PanelState.MIN:
+      case PanelState.min:
         return -1;
-      case PanelState.MAX:
+      case PanelState.max:
         return -2;
-      case PanelState.DISMISS:
+      case PanelState.dismiss:
         return -3;
-      default:
-        return -1;
     }
   }
 }
